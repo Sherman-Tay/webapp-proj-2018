@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="css/stylesheet01.css">
+    <meta charset="utf-8">
+    <title>Home Page</title>
+  </head>
+  <body>
+    <div id=wrapper>
+      <header class ="main-nav">
+        <div class = container-head>
+          <div class = header-logo>
+            <a href="index.html">
+              <img src="img/logo-amigo.png" height = 100px width=160px>
+            </a>
+          </div>
+          <div class = motto>
+            <p> Your Friendly Movie Booking Platform <br> That's what Amigos are for</p>
+          </div>
+          <div class = nav-wrap>
+            <ul class = menu-primary underline>
+              <li class = menu-item-primary>
+                <a id="home" href="index.html">home</a>
+              </li>
+              <li class =  menu-item-primary>
+                <a id="movies" href="movie-catalog.html">movies</a>
+              </li>
+              <li class = " menu-item-primary">
+                <a id="contact" href="contact.html">contact us</a>
+              </li>
+              <li class = " menu-item-primary">
+                <a id="cart" href="cart.html">cart</a>
+              </li>
+              <li class = " menu-item-primary header-menu-account">
+                <a id="header-menu-account" href="sign-in.html">
+                  sign in
+                </a>
+              </li>
+          </ul>
+          </div>
+        </div>
+      </header>
+      <main class = container-body>
+        <div class = top-content>
+          <div class = carousel-container>
+            <img class = movie-slides src="img/first-man-slide.jpg">
+            <img class = movie-slides src="img/old-man-slide.jpg">
+            <img class = movie-slides src="img/venom-slide.jpg">
+            <img class = movie-slides src="img/aquaman-slide.jpg">
+            <div class = slider-bar>
+              <div class="left-slider" onclick="plusDivs(-1)">&#10094;</div>
+              <div class="right-slider" onclick="plusDivs(1)">&#10095;</div>
+            </div>
+          </div>
+        </div>
+        <div class = bottom-content>
+          <div class = about-us>
+            <h2> About Us</h2>
+            <p>Lorem Ipsum is simply dummy text of the printing and
+               typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown
+                 printer took a galley of type and scrambled it to make a
+                  type specimen book. It has survived not only five centuries
+                  , but also the leap into electronic typesetting, remaining
+                  essentially unchanged. It was popularised in the 1960s with
+                   the release of Letraset sheets containing Lorem Ipsum
+                   passages, and more recently with desktop publishing
+                   software like Aldus PageMaker including versions of Lorem Ipsum.
+            </p>
+          </div>
+          <div class = "trending-movies">
+            <h2> Trending Movies</h2>
+              <ul>
+                <li>
+                  Aquaman
+                </li>
+                <li>First Man</li>
+                <li> Venom </li>
+                <li>The Old Man & the Gun</li>
+              </ul>
+          <!-- trending movies -->
+          </div>
+          <div class = "our-locations">
+          <h2>Our Locations</h2>
+            <ul>
+              <li>Orchard central</li>
+              <li>Jurong East Mall</li>
+              <li>Tampines Hub</li>
+            </ul>
+          </div>
+      </main>
+      <footer class=footer>
+        Copyright &copy; 2018 MovieAmigo Corporation <br>
+        <a href="mailto:thebestmovies@amigo.com">thebestmovies@amigo.com</a>
+      </footer>
+    </div>
+  </body>
+      <script type="text/javascript" src="js/slides.js"></script>
+</html>
