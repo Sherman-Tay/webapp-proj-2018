@@ -1,9 +1,17 @@
-<!DOCTYPE html>
+<?php
+  session_start();
+
+  // store to test if they *were* logged in
+  $old_user = $_SESSION['registeredusers'];
+  unset($_SESSION['registeredusers']);
+  session_destroy();
+?>
+
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="css/stylesheet.css">
     <meta charset="utf-8">
-    <title>Sign In Page</title>
+    <title>Logout</title>
   </head>
   <body>
     <div id=wrapper>
@@ -23,16 +31,16 @@
                 <a id="home" href="index.html">home</a>
               </li>
               <li class =  menu-item-primary>
-                <a id="movies" href="movie-catalog.html">movies</a>
+                <a id="movies" href="movie-catalog.php">movies</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="contact" href="contact.html">contact us</a>
+                <a id="contact" href="contact.php">contact us</a>
               </li>
               <li class = " menu-item-primary">
                 <a id="cart" href="cart.html">cart</a>
               </li>
               <li class = " menu-item-primary header-menu-account">
-                <a id="header-menu-account" href="sign-in.html">
+                <a id="header-menu-account" href="sign-in.php">
                   sign in
                 </a>
               </li>
@@ -43,11 +51,25 @@
       <main class = container-body>
         <div class= bottom-content>
           <div class = "content-left">
-
           </div>
-          <div class = "content right">
-            <h2>Sign In / Register</h2>
-          </div>
+          <div class = "content-right">
+            <div class= page-heading></div>
+              <h2>Log Out</h2>
+            </div>
+            <div class=page-content>
+              <?php
+                if (!empty($old_user))
+                {
+                  echo 'Logged out.<br />';
+                }
+                else
+                {
+                  // if they weren't logged in but came to this page somehow
+                  echo 'You were not logged in, and so have not been logged out.<br />';
+                }
+              ?>
+              <a href="index.html">Back to main page</a>
+            </div>
         </div>
       </main>
       <footer class=footer>

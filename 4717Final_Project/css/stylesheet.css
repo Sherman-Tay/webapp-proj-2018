@@ -191,25 +191,30 @@ html{
 }
 
 .content-left{
-  background-color: white;
+  background-color: #ebdd64;
   border-top: 2px solid black;
   border-right: 2px solid black;
   border-bottom: 1px solid black;
   float: left;
   width: 300px;
-  min-height: 450px;
+  min-height: 550px;
   height: auto;
   margin-right: 8px;
-  margin-top: 60px;
+  margin-top: 70px;
 }
-.content-right{
+.page-heading{
+  padding:0;
+}
+.page-content{
   border: 2px solid black;
   float: left;
-  width: 350px;
-  padding: 15 10 15 15; /*top right down left */
-  height: 350px;
+  width: 65%;
+  padding: 10 10 15 15; /*top right down left */
+  height: 520px;
   margin-right: 8px;
-  background-color: white;
+  margin-top: 0px;
+  background-color: #ebdd64;
+  overflow-y: scroll;
 }
 /* footer */
 
@@ -227,4 +232,148 @@ html{
 }
 .footer a:hover{
   color:#b4aa50;
+}
+
+/* functionalities */
+
+.contact-form label{
+  margin: 40px 16px 8px 0px;
+	display: block;
+	float: left;
+	clear: left;
+	text-align: right;
+	width: 150px;
+  font-weight: bold;
+}
+
+.contact-form  input,
+.contact-form  textarea {
+	margin: 40px 16px 8px 0px;
+	float: left;
+  border-width:medium;
+  border-color: #b4aa50;
+  width: 200px;
+}
+.contact-form textarea{
+  height: 120px;
+  width: 400px;
+  overflow-y: scroll;
+}
+.contact-form > .btn-submit {
+	clear: left;
+	margin: 0px 0px;
+  border-radius:3px;
+  margin-left: 500px;
+  padding: 5px 8px;
+  font-weight: bold;
+  width: auto;
+}
+
+.registration-form label{
+  margin: 40px 16px 8px 0px;
+	display: block;
+	float: left;
+	clear: left;
+	text-align: right;
+	width: 150px;
+  font-weight: bold;
+}
+
+.registration-form  input,
+.registration-form  textarea {
+	margin: 40px 16px 8px 0px;
+	float: left;
+  border-width:medium;
+  border-color: #b4aa50;
+  width: 200px;
+}
+
+.registration-form > .btn-submit {
+	clear: left;
+	margin: 30px 0px;
+  border-radius:3px;
+  margin-left: 220px;
+  padding: 5px 8px;
+  font-weight: bold;
+  width: 70px;
+  display: inline-block;
+}
+.registration-form > .btn-reset{
+  margin: 30px 0px;
+  border-radius:3px;
+  margin-left: 10px;
+  padding: 5px 8px;
+  font-weight: bold;
+  width: 70px;
+  display: inline-block;
+}
+
+.signin-form > .btn-submit {
+	margin: 35px 0px;
+  border-radius:3px;
+  margin-left: 20px;
+  padding: 5px 8px;
+  font-weight: bold;
+  width: 70px;
+  display: inline-block;
+}
+.signin-form label{
+  margin: 40px 16px 8px 0px;
+	display: block;
+	float: left;
+	clear: left;
+	text-align: right;
+	width: 150px;
+  font-weight: bold;
+}
+.signin-form  input,
+.signin-form  textarea {
+	margin: 40px 16px 8px 0px;
+	float: left;
+  border-width:medium;
+  border-color: #b4aa50;
+  width: 200px;
+}
+.signin-form p{
+  clear: left;
+}
+
+.movies-table{
+  border-left: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.movies-table tr:nth-child(even) {
+	background-color: white;}
+.movies-table td{
+  border: 1.5px solid black;
+  max-height: 70px;
+}
+.movie-head{
+  font-size: 20px;
+  font-family: roboto;
+  text-decoration: underline;
+  text-align: center;
+}
+
+.movieList h3{
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.movieList p{
+  padding: 0px 20px 5px 20px;
+}
+
+.movieList a{
+  text-decoration: none;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: black;
+}
+.movieList a:hover{
+  color:#443f40;
+  /* font-size: 13.5px; */
 }

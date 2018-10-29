@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="css/stylesheet.css">
     <meta charset="utf-8">
-    <title>Cart Page</title>
+    <title>Registration Page</title>
   </head>
   <body>
     <div id=wrapper>
@@ -46,10 +46,56 @@
           </div>
           <div class = "content-right">
             <div class= page-heading></div>
-              <h2>Cart</h2>
+              <h2>Registration</h2>
             </div>
             <div class=page-content>
+							<?php // register.php
+							include "dbconnect.php";
+							if (isset($_POST['submit'])) {
+								if (empty($_POST['username']) || empty ($_POST['password'])
+									|| empty ($_POST['password2']) || empty ($_POST['email'])) {
+								echo "All records to be filled in";
+								exit;}
+								}
+							$username = $_POST['username'];
+							$password = $_POST['password'];
+							$password2 = $_POST['password2'];
+							$email = $_POST['email'];
+							$contact = $_POST['contact'];
+              $queryuser = 'select * from registeredusers'."where userID='$username'";
 
+              //check if username already exists !!! somehow doesnt work!
+              $checkuser = $dbcnx->query($queryuser);
+              if ($checkuser->num_rows > 0) {
+                echo " Username Already Exists! <br> Please Select Another One";
+                exit;
+              }
+
+							// echo ("$username" . "<br />". "$password2" . "<br />");
+							if ($password != $password2) {
+								echo "Sorry! The passwords do not match";
+								echo "<br>";
+								echo 'click <a href="register.html">here</a> to retry';
+
+								exit;
+								}
+
+							$password = md5($password);
+
+							// echo $password;
+							$sql = "INSERT INTO  `registeredusers` (`userID`,`Password`,`Emailaddress`,`Contact`)
+							    VALUES ('$username','$password','$email','$contact')";
+							//	echo "<br>". $sql. "<br>";
+
+							$result = $dbcnx->query($sql);
+
+							if (!$result)
+								echo "Your query failed.";
+							else
+								echo "Welcome ". $username . ". You are now registered with us!";
+								echo "<br>";
+								echo 'click <a href="register.html">here</a> to return to Log in page!';
+							?>
             </div>
         </div>
       </main>

@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="css/stylesheet.css">
     <meta charset="utf-8">
-    <title>Cart Page</title>
+    <title>Movie Catalog</title>
   </head>
   <body>
     <div id=wrapper>
@@ -46,10 +46,43 @@
           </div>
           <div class = "content-right">
             <div class= page-heading></div>
-              <h2>Cart</h2>
+              <h2>Movie Catalog</h2>
             </div>
             <div class=page-content>
+              <table class="movies-table">
+                <?php
+                  ini_set("display_errors", TRUE);
+                  include "dbconnect.php";
+                  $movies = $dbcnx->query("SELECT * FROM movie");
 
+              // Check query
+                  if (!$movies) {
+                    trigger_error('Invalid query: ' . $conn->error);
+                    }
+
+                  // create headers
+                  echo'
+                    <tr class = "movie-head">
+                      <td width=200px>
+                        <h3> Movie titles </h3>
+                      </td>
+                      <td>
+                        <h3>Movie Description</h3>
+                      </td>
+                        ';
+                  while ($movies_row = $movies->fetch_assoc()) {
+									  echo '
+										  <tr class="movieList">
+											  <td>
+												  <a href="'.$movies_row["webpage"].'"><h3>'.$movies_row["Title"].'</h3> </a>
+											  </td>
+											  <td>
+												  <p>'.$movies_row["Description"].'</p>
+                        </td>
+                      </tr>';
+                    };
+                  ?>
+              </table>
             </div>
         </div>
       </main>
