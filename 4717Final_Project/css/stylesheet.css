@@ -377,3 +377,32 @@ html{
   color:#443f40;
   /* font-size: 13.5px; */
 }
+
+.movie-img img{
+  height: 250px;
+  padding: 20px;
+  float: left;
+  clear:both;
+}
+.movie_info_description{
+  float: left;
+  padding-top: 60px;
+  padding-left: 30px;
+  width: 400px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.movie_info_description h3,
+{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.timing_description{
+  float:left;
+  width:180px;
+  padding-top: 60px;
+  padding-left: 30px;
+  margin-top: auto;
+  margin-bottom: 90px;
+}

@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="css/stylesheet.css">
     <meta charset="utf-8">
-    <title>Movie Catalog</title>
+    <title>Aquaman</title>
   </head>
   <body>
     <div id=wrapper>
@@ -26,7 +26,7 @@
                 <a id="movies" href="movie-catalog.php">movies</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="contact" href="contact.php">contact us</a>
+                <a id="contact" href="contact.html">contact us</a>
               </li>
               <li class = " menu-item-primary">
                 <a id="cart" href="cart.html">cart</a>
@@ -46,43 +46,68 @@
           </div>
           <div class = "content-right">
             <div class= page-heading></div>
-              <h2>Movie Catalog</h2>
+              <h2>Aquaman</h2>
             </div>
             <div class=page-content>
-              <table class="movies-table">
+              <div class="movie-img">
+                <img src="img/aquaman-slide.jpg" >
+              </div>
+              <div class="movie-description">
                 <?php
                   ini_set("display_errors", TRUE);
                   include "dbconnect.php";
-                  $movies = $dbcnx->query("SELECT * FROM movie");
+                  $pagemovie = 'Aquaman'; //define page title
+                  $sql = "SELECT * FROM `movie` WHERE `Title` = 'Aquaman'";
+                  $movies = mysqli_fetch_assoc(mysqli_query($dbcnx,$sql));
+                  $timing = $dbcnx->query("SELECT * FROM seatavailability");
+                  
+
 
               // Check query
                   if (!$movies) {
                     trigger_error('Invalid query: ' . $dbcnx->error);
                     }
+                  if (!$timing) {
+                    trigger_error('Invalid query: ' . $dbcnx->error);
+                    }
 
                   // create headers
                   echo'
-                    <tr class = "movie-head">
-                      <td width=200px>
-                        <h3> Movie titles </h3>
-                      </td>
+                  <table class="movie_info_description">
+                    <tr>
                       <td>
                         <h3>Movie Description</h3>
                       </td>
-                        ';
-                  while ($movies_row = $movies->fetch_assoc()) {
-									  echo '
-										  <tr class="movieList">
-											  <td>
-												  <a href="'.$movies_row["webpage"].'"><h3>'.$movies_row["Title"].'</h3> </a>
-											  </td>
-											  <td>
-												  <p>'.$movies_row["Description"].'</p>
+                      <tr>
+                        <td>
+                          <p>'.$movies['Description'].'</p>
                         </td>
-                      </tr>';
-                    };
+                      </tr>
+                    </table>
+                    <table class = "timing_description">
+                      <tr>
+                        <td>
+                          <h3> Movie Timings:<h3></br>';
+                          while ($timing_row = $timing->fetch_assoc())
+                          {
+                            echo'
+                            <input type="submit" name=" '.$timing_row['timing'].'" value="'.$timing_row['timing'].'">
+                          ';
+                          };
+                            echo'
+                        </td>
+                      </tr>
+                    </table>';
                   ?>
-              </table>
+              </div>
+              <div class="seating-plan">
+                <img src="img/seat-plan.png" width = 500px float='left' height = 150px><br>
+                <br>
+                <p>The available Seats are:</p>
+                <?php
+
+                  ?>
+              </div>
             </div>
         </div>
       </main>
