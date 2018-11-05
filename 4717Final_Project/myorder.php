@@ -1,3 +1,8 @@
+<?php
+include "dbconnect.php";
+session_start();
+  
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -29,7 +34,7 @@
                 <a id="contact" href="contact.php">contact us</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="cart" href="cart.html">cart</a>
+                <a id="cart" href="cart.php">cart</a>
               </li>
               <li class = " menu-item-primary header-menu-account">
                 <a id="header-menu-account" href="sign-in.php">
@@ -40,7 +45,7 @@
           </div>
         </div>
       </header>
-      <main class = container-body>
+       <main class = container-body>
         <div class= bottom-content>
           <div class = "content-left">
           </div>
@@ -51,54 +56,58 @@
             <div class=page-content>
 			<div id="checkout">
 			<body>
-<h1>Your Shopping Cart </h1>
+<h1>My order </h1>
 <?php
-$items = array(
-	'Aquaman',
-	'Venom',
-	'The Old Man & the Gun',
-	'Fahrenheit 11/9');
-$prices = array(12.00, 10.00,10.00,8.00);
-?>
-<table border="1">
-	<thead>
+$t_price = "";
+$o_id=$_SESSION['orderid']-1;
+$sql = "select seat from cart where orderid='$o_id'";
+$result = mysqli_query($dbcnx,$sql);
+$resultCheck = mysqli_num_rows($result);
+
+if ($resultCheck >0) {
+	echo '<table border="1">
 	<tr>
-		<th>Item Description</th>
+		<th>Movie Title</th>
+		<th>Seat</th>
+		<th>Time</th>
 		<th>Price</th>
-	</tr>
-	</thead>
-	<tbody>
-<?php
-$total = 0;
-for ($i=0; $i < count($_SESSION['cart']); $i++){
-	echo "<tr>";
-	echo "<td>" .$items[$_SESSION['cart'][$i]]. "</td>";
-	echo "<td align='right'>$";
-	echo number_format($prices[$_SESSION['cart'][$i]], 2). "</td>";
-	echo "</tr>";
-	$total = $total + $prices[$_SESSION['cart'][$i]];
+	</tr>';
+	while ($row = mysqli_fetch_assoc($result)) {
+		$query = "select * from cart where seat='".$row['seat']."' and orderid='".$o_id."'";
+		$data = mysqli_fetch_assoc(mysqli_query($dbcnx,$query));
+		echo '<tr>';
+		echo '<td>'.$data['movie'].'</td>';
+		echo '<td>'.$data['seat'].'</td>';
+		echo '<td>'.$data['time'].'</td>';
+		echo '<td>'.$data['price'].'</td>';
+		echo '</tr>';
+		$t_price=$t_price + $data['price'];
+	}
+	echo '<tr><td colspan="2"><b>Total Price: </b></td><td colspan="2">$'.$t_price.'</td><tr></table>';
+} else {
+	echo 'Your Shopping Cart Is Empty!';
 }
 ?>
-	</tbody>
-	<tfoot>
-	<tr>
-		<th align='right'>Total:</th><br>
-		<th align='right'>$<?php echo number_format($total, 2); ?>
-		</th>
-	</tr>
-	</tfoot>
-</table>
-<p><a href="movie-catalog.php">Continue Shopping</a> or
-<a href="<?php echo $_SERVER['PHP_SELF']; ?>?empty=1">Empty your cart</a></p>
+		<br><br><br><br>
+		<table id="table2" border="1">
+		<tr><th  colspan=4" >ORDER STATUS</th></tr>
+		
+		<tr id="tb2r2">
+		<td><?php if ($myorder == "Order Received" || $myorder == "In Progress" || $myorder == "Delivery in Progress" || $myorder == "Delivered") { echo "<font color = 'green'>Order Received";} else { echo "<font color = 'grey'>Order Received";}?></td>
+		</table>
+	  </form>
+	</div>
+  </div>
 
-			</div>
-			<form method="POST" action="checkout.inc.php" class="checkout"><button type="submit" name="payment">Payment</button></form>
+<?php
+  $result->free();
+  $db->close();
+?>
+	</div>
+	</body>
             </div>
-</body>
-			
-        </div>
-      </main>
-      <footer class=footer>
+			</main>
+     <footer class=footer>
         Copyright &copy; 2018 MovieAmigo Corporation <br>
         <a href="mailto:thebestmovies@amigo.com">thebestmovies@amigo.com</a>
       </footer>

@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="css/stylesheet.css">
+	<script type = "text/javascript"  src = "js/contactvalidator.js" ></script>
     <meta charset="utf-8">
     <title>Contact Page</title>
   </head>
@@ -26,10 +27,10 @@
                 <a id="movies" href="movie-catalog.php">movies</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="contact" href="contact.html">contact us</a>
+                <a id="contact" href="contact.php">contact us</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="cart" href="cart.html">cart</a>
+                <a id="cart" href="cart.php">cart</a>
               </li>
               <li class = " menu-item-primary header-menu-account">
                 <a id="header-menu-account" href="sign-in.php">
@@ -79,9 +80,10 @@
                     <label>Contact Number:</label>
                     <input type="contact-number" name="number" id="myNumber" placeholder="Optional">
                     <label>*Your Inquiry:</label>
-                    <textarea name="inquiry" id="myInquiry" required></textarea>
+                    <textarea name="Inquiry" id="myInquiry" required></textarea>
                     <input class="btn-submit" type="submit" value="Submit">
                   </form>
+				  <script type = "text/javascript"  src = "js/contactvalidatorr.js" ></script>
                   <?php
                     }
                   ?>

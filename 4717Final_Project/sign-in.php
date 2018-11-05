@@ -19,7 +19,19 @@ if (isset($_POST['userID']) && isset($_POST['Password']))
     // if they are in the database register the user id
     $_SESSION['registeredusers'] = $userid;
   }
-  $dbcnx->close();
+  
+  //get new order id
+  	$sql = "SELECT MAX( orderid ) AS max FROM cart;";
+	$result= mysqli_query($dbcnx, $sql );
+    if ($row = mysqli_fetch_array($result)) {
+		if ($row['max']==0){
+			$_SESSION['orderid']=1;
+		} else {
+			$_SESSION['orderid']=$row['max']+1;
+		}
+	}
+	header("Location:http://192.168.56.2/f35ee/4717Final_Project/aquaman-desc.php");
+  //$dbcnx->close();
 }
 ?>
 <html lang="en" dir="ltr">
@@ -52,7 +64,7 @@ if (isset($_POST['userID']) && isset($_POST['Password']))
                 <a id="contact" href="contact.php">contact us</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="cart" href="cart.html">cart</a>
+                <a id="cart" href="cart.php">cart</a>
               </li>
               <li class = " menu-item-primary header-menu-account">
                 <a id="header-menu-account" href="sign-in.php">

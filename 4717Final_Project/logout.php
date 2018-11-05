@@ -37,7 +37,7 @@
                 <a id="contact" href="contact.php">contact us</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="cart" href="cart.html">cart</a>
+                <a id="cart" href="cart.php">cart</a>
               </li>
               <li class = " menu-item-primary header-menu-account">
                 <a id="header-menu-account" href="sign-in.php">

@@ -35,7 +35,7 @@
                 <a id="movies" href="movie-catalog.php">movies</a>
               </li>
               <li class = " menu-item-primary">
-                <a id="contact" href="contact.php">contact us</a>
+                <a id="contact" href="contact.html">contact us</a>
               </li>
               <li class = " menu-item-primary">
                 <a id="cart" href="cart.php">cart</a>
@@ -55,21 +55,21 @@
           </div>
           <div class = "content-right">
             <div class= page-heading></div>
-              <h2>Aquaman</h2>
+              <h2>Venom</h2>
             </div>
             <div class=page-content>
               <div class="movie-img">
-                <img src="img/aquaman-slide.jpg" >
+                <img src="img/venom-slide.jpg" >
               </div>
               <div class="movie-description">
                 <?php
                   ini_set("display_errors", TRUE);
                   include "dbconnect.php";
-                  $pagemovie = 'Aquaman'; //define page title
-                  $sql = "SELECT * FROM `movie` WHERE `Title` = 'Aquaman'";
+                  $pagemovie = 'Venom'; //define page title
+                  $sql = "SELECT * FROM `movie` WHERE `Title` = 'Venom'";
                   $movies = mysqli_fetch_assoc(mysqli_query($dbcnx,$sql));
-                  $timing = $dbcnx->query("SELECT * FROM seatavailability WHERE `Title` = 'Aquaman'");
-                  $query = "select * from seatavailability where Title='Aquaman'";
+                  $timing = $dbcnx->query("SELECT * FROM seatavailability WHERE `Title` = 'Venom'");
+                  $query = "select * from seatavailability where Title='Venom'";
                   $seatinfo = mysqli_fetch_assoc(mysqli_query($dbcnx,$query));
 
               // Check query
@@ -99,7 +99,7 @@
                       <tr>
                         <td>
                           <h3> Movie Timings:<h3></br>
-						  <form id="tb" action="aquaproc.php" method="POST">
+						  <form id="tb" action="venomproc.php" method="POST">
 						  <label>Price: $10</label><input type="hidden" id="prc" name="price" value="10"><br>
 						  <label>Seat</label>
 						  <select name="seat">';
@@ -114,8 +114,8 @@
 						  if ($seatinfo['B4']==1) { echo '<option value="B4">B4</option>';}
 						  if ($seatinfo['B5']==1) { echo '<option value="B5">B5</option>';}
 						  echo '</select>
-						  <input type="hidden" name="movie" value="Aquaman"><br>';
-                          while ($timing_row = $timing->fetch_assoc())
+						  <input type="hidden" name="movie" value="Venom"><br>';
+                      while ($timing_row = $timing->fetch_assoc())
                           {
 							//$_session['movie']=$movies['Title'];
 							//echo $_session['movie'];
@@ -136,6 +136,10 @@
               <div class="seating-plan">
                 <img src="img/seat-plan.png" width = 500px float='left' height = 150px><br>
                 <br>
+                <p>The available Seats are:</p>
+                <?php
+
+                  ?>
               </div>
             </div>
         </div>
