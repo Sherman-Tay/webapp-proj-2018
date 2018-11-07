@@ -64,7 +64,7 @@
 							$contact = $_POST['contact'];
               $queryuser = 'select * from registeredusers'."where userID='$username'";
 
-              //check if username already exists !!! somehow doesnt work!
+              //check if username already exists 
               $checkuser = $dbcnx->query($queryuser);
               if ($checkuser->num_rows > 0) {
                 echo " Username Already Exists! <br> Please Select Another One";

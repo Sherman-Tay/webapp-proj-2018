@@ -1,7 +1,7 @@
 <?php
 include "dbconnect.php";
 session_start();
-  
+
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -56,7 +56,7 @@ session_start();
             <div class=page-content>
 			<div id="checkout">
 			<body>
-<h1>My order </h1>
+<h1> &nbsp &nbsp &nbsp My order </h1>
 <?php
 $t_price = "";
 $o_id=$_SESSION['orderid']-1;
@@ -65,7 +65,7 @@ $result = mysqli_query($dbcnx,$sql);
 $resultCheck = mysqli_num_rows($result);
 
 if ($resultCheck >0) {
-	echo '<table border="1">
+	echo '<table class= "cart-table" border="1">
 	<tr>
 		<th>Movie Title</th>
 		<th>Seat</th>
@@ -89,11 +89,11 @@ if ($resultCheck >0) {
 }
 ?>
 		<br><br><br><br>
-		<table id="table2" border="1">
+		<table class= "order-status" id="table2" border="1">
 		<tr><th  colspan=4" >ORDER STATUS</th></tr>
-		
+
 		<tr id="tb2r2">
-		<td><?php if ($myorder == "Order Received" || $myorder == "In Progress" || $myorder == "Delivery in Progress" || $myorder == "Delivered") { echo "<font color = 'green'>Order Received";} else { echo "<font color = 'grey'>Order Received";}?></td>
+		<td><?php if ($myorder == "Order Received" || $myorder == "In Progress" || $myorder == "Delivery in Progress" || $myorder == "Delivered") { echo "<font color = 'green'>Order Received";} else { echo "<font color = 'green' >Order Received";}?></td>
 		</table>
 	  </form>
 	</div>

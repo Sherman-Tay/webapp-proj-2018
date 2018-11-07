@@ -93,7 +93,7 @@ if ($resultCheck >0) {
 	}
 	echo '<tr><td colspan="2"><b>Total Price: </b></td><td colspan="2">$'.$t_price.'</td><tr></table>';
 } else {
-	echo 'Your Shopping Cart Is Empty!';
+	echo '&nbsp &nbsp &nbsp Your Shopping Cart Is Empty!';
 }
 ?>
 <br><br><br>

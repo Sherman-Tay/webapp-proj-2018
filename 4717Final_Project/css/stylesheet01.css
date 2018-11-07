@@ -179,6 +179,10 @@ html{
   list-style: none;
   padding-top: 10px;
 }
+.trending-movies a{
+  text-decoration: none;
+  color: inherit;
+}
 .our-locations{
   border: 2px solid black;
   display: block;

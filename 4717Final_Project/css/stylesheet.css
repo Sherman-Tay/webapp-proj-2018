@@ -420,7 +420,7 @@ html{
 .cart-btn-pay {
   margin: 35px 0px;
   border-radius:3px;
-  margin-left: 10px;
+  margin-left: 40px;
   padding: 5px 8px;
   font-weight: bold;
   width: 150px;
@@ -434,4 +434,16 @@ html{
   background-color: #c3c3c3;
 }
 .cart-table tr:first-child {
+	background-color: white !important;}
+
+#checkout h2{
+  padding-left: 20px;
+}
+.order-status{
+  margin-left: 180px;;
+  width: 200px;
+  background-color: #c3c3c3;
+  color: black;
+}
+.order-status tr:first-child {
 	background-color: white !important;}
