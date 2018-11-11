@@ -62,9 +62,8 @@
 							$password2 = $_POST['password2'];
 							$email = $_POST['email'];
 							$contact = $_POST['contact'];
-              $queryuser = 'select * from registeredusers'."where userID='$username'";
-
-              //check if username already exists 
+              $queryuser = "select * from registeredusers where userID ='".$username."'";
+              //check if username already exists
               $checkuser = $dbcnx->query($queryuser);
               if ($checkuser->num_rows > 0) {
                 echo " Username Already Exists! <br> Please Select Another One";
@@ -90,7 +89,8 @@
 							$result = $dbcnx->query($sql);
 
 							if (!$result)
-								echo "Your query failed.";
+								echo "There is an error in your registration, please try again.";
+                echo 'click <a href="sign-in.php">here</a> to return to Log in page!';
 							else
 								echo "Welcome ". $username . ". You are now registered with us!";
 								echo "<br>";

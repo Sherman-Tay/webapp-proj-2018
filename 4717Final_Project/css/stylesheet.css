@@ -196,7 +196,7 @@ html{
   border-right: 2px solid black;
   border-bottom: 1px solid black;
   float: left;
-  width: 300px;
+  width: 250px;
   min-height: 550px;
   height: auto;
   margin-right: 8px;
@@ -208,9 +208,10 @@ html{
 .page-content{
   border: 2px solid black;
   float: left;
-  width: 65%;
-  padding: 10 10 15 15; /*top right down left */
-  height: 520px;
+  width : 900px;
+  min-width: 550px;
+  padding: 10 10 0 15; /*top right down left */
+  height: 543px;
   margin-right: 8px;
   margin-top: 0px;
   background-color: #ebdd64;
@@ -387,22 +388,28 @@ html{
 .movie_info_description{
   float: left;
   padding-top: 60px;
-  padding-left: 30px;
+  padding-left: 20px;
   width: 400px;
   margin-top: auto;
   margin-bottom: auto;
 }
-.movie_info_description h3,
-{
-  font-weight: bold;
+.movie_info_description h3{
+  font-weight:900;
   text-decoration: underline;
 }
-
+.timing_description h3{
+  font-weight:900;
+  text-decoration: underline;
+}
+#tb label{
+  color: #2d191a;
+  font-weight: 800;
+}
 .timing_description{
   float:left;
-  width:180px;
+  width:200px;
   padding-top: 60px;
-  padding-left: 30px;
+  padding-left: 20px;
   margin-top: auto;
   margin-bottom: 90px;
 }

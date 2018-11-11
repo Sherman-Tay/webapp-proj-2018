@@ -67,8 +67,8 @@ if (isset($_GET['empty'])) {
 <h2> Your Shopping Cart </h2>
 <?php
 $t_price = "";
-$o_id=$_SESSION['orderid'];
-$sql = "select seat from cart where orderid='$o_id'";
+$o_id=$_SESSION['OrderID'];
+$sql = "select SeatIndex from cart where OrderID='$o_id'";
 $result = mysqli_query($dbcnx,$sql);
 $resultCheck = mysqli_num_rows($result);
 
@@ -81,19 +81,22 @@ if ($resultCheck >0) {
 		<th>Price</th>
 	</tr>';
 	while ($row = mysqli_fetch_assoc($result)) {
-		$query = "select * from cart where seat='".$row['seat']."' and orderid='".$o_id."'";
+		$query = "SELECT * from cart where SeatIndex='".$row['SeatIndex']."' and OrderID='".$o_id."'";
 		$data = mysqli_fetch_assoc(mysqli_query($dbcnx,$query));
 		echo '<tr>';
-		echo '<td>'.$data['movie'].'</td>';
-		echo '<td>'.$data['seat'].'</td>';
-		echo '<td>'.$data['time'].'</td>';
-		echo '<td>'.$data['price'].'</td>';
+		echo '<td>'.$data['Title'].'</td>';
+		echo '<td>'.$data['SeatIndex'].'</td>';
+		echo '<td>'.$data['Time'].'</td>';
+		echo '<td>'.$data['SeatPrice'].'</td>';
 		echo '</tr>';
-		$t_price=$t_price + $data['price'];
+		$t_price=$t_price + $data['SeatPrice'];
 	}
 	echo '<tr><td colspan="2"><b>Total Price: </b></td><td colspan="2">$'.$t_price.'</td><tr></table>';
 } else {
 	echo '&nbsp &nbsp &nbsp Your Shopping Cart Is Empty!';
+}
+if ($resultCheck > 0){
+	echo '<p>&nbsp &nbsp &nbsp  Click <a href="myorder.php">here</a> to view your orders </p>';
 }
 ?>
 <br><br><br>
@@ -101,6 +104,7 @@ if ($resultCheck >0) {
 	<button class ="cart-btn-submit"type="submit" name="shopping">Continue Shopping</button>
 	<button class="cart-btn-empty" type ="submit" name="empty">Empty Cart</button>
 </form>
+
 
 			</div>
 			<br>
@@ -110,6 +114,7 @@ if ($resultCheck >0) {
 				echo '<button  class="cart-btn-pay" type="submit" name="payment">Payment</button>';
 				echo '</form>';
 				}
+
 			?>
 			</div>
 </body>

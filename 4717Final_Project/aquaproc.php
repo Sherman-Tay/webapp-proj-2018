@@ -7,11 +7,11 @@ if (isset($_POST['time'])) {
 	$title= $_POST['movie'];
 	$prc=$_POST['price'];
 	$seat=$_POST['seat'];
-	$orderid = $_SESSION['orderid'];
-	$sql = "insert into cart (movie, price, seat, time, orderid) values ('$title','$prc','$seat','$time', '$orderid')";
+	$orderid = $_SESSION['OrderID'];
+	$sql = "insert into cart (Title, SeatPrice, SeatIndex, Time, OrderID) values ('$title','$prc','$seat','$time', '$orderid')";
 	mysqli_query($dbcnx, $sql);
 
-	$sql = "update seatavailability SET ".$seat."='0' WHERE Title='".$title."' AND timing='".$time."'";
+	$sql = "UPDATE movieSeats SET SeatAvail='0' WHERE SeatIndex='".$seat."' AND Time='".$time."'";
 	$result=mysqli_query($dbcnx, $sql);
 	header("Location:http://192.168.56.2/f35ee/4717Final_Project/cart.php");
 }

@@ -9,29 +9,24 @@ if (isset($_POST['shopping'])) {
 }
 
 if (isset($_POST['empty'])) {
-	$o_id = $_SESSION['orderid'];
-	$sql = "DELETE FROM cart WHERE orderid='".$o_id."'";
+	$o_id = $_SESSION['OrderID'];
+	$sql = "select * from cart where OrderID ='".$o_id."'";
+	$result = mysqli_query($dbcnx,$sql);
+	while ($row = mysqli_fetch_assoc($result)) {
+	 	$sql = "UPDATE `movieSeats` SET `SeatAvail`='1' WHERE `SeatIndex`='".$row['SeatIndex']."' and `Time` ='".$row['Time']."'";
+		$result=mysqli_query($dbcnx, $sql);
+	};
+
+	$sql = "DELETE FROM cart WHERE OrderID='".$o_id."'";
 	mysqli_query($dbcnx,$sql);
-	$seattoremove = $dbcnx->query("SELECT * FROM cart WHERE orderid='".$o_id."'");
-	$sql = "SELECT movie FROM cart WHERE orderid='".$o_id."' LIMIT 1";
-	$movieofseat =  mysqli_fetch_assoc(mysqli_query($dbcnx,$sql));
-	$sql = "SELECT timing FROM cart WHERE orderid='".$o_id."' LIMIT 1";
-	$timingofseat =  mysqli_fetch_assoc(mysqli_query($dbcnx,$sql));
-	// 
-	// while ($row = fetch_assoc->($seattoremove)) {
-	//  	$seat = $row["seat"];
-	// 	// $seat = 	mysql_real_escape_string($seat);
-	//  	$title = $row["movie"];
-	// 	// $title = 	mysql_real_escape_string($title);
-	//  	$time = $row["time"];
-	// 	// $time = 	mysql_real_escape_string($time);
-	//  	$sql = "UPDATE `seatavailability` SET `$seat` = '1' WHERE `Title` = '$title' AND `timing` =  '$time'";
-	//  	mysqli_query($sql,$dbcnx);
-	// }
-	 // $seattoremove = free();
 
 	header("Location:http://192.168.56.2/f35ee/4717Final_Project/cart.php");
 	exit();
 
 }
 ?>
+<!-- $sql = "select SeatIndex from cart where OrderID='$o_id'";
+$result = mysqli_query($dbcnx,$sql);
+while ($row = mysqli_fetch_assoc($result)) {
+	$query = "SELECT * from cart where SeatIndex='".$row['SeatIndex']."' and OrderID='".$o_id."'";
+	$data = mysqli_fetch_assoc(mysqli_query($dbcnx,$query)); -->

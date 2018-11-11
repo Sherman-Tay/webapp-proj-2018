@@ -19,15 +19,15 @@ if (isset($_POST['userID']) && isset($_POST['Password']))
     // if they are in the database register the user id
     $_SESSION['registeredusers'] = $userid;
   }
-  
+
   //get new order id
-  	$sql = "SELECT MAX( orderid ) AS max FROM cart;";
+  	$sql = "SELECT MAX( OrderID ) AS max FROM cart;";
 	$result= mysqli_query($dbcnx, $sql );
     if ($row = mysqli_fetch_array($result)) {
 		if ($row['max']==0){
-			$_SESSION['orderid']=1;
+			$_SESSION['OrderID']=1;
 		} else {
-			$_SESSION['orderid']=$row['max']+1;
+			$_SESSION['OrderID']=$row['max']+1;
 		}
 	}
 	header("Location:http://192.168.56.2/f35ee/4717Final_Project/aquaman-desc.php");
