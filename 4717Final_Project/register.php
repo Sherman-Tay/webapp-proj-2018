@@ -62,7 +62,7 @@
 							$password2 = $_POST['password2'];
 							$email = $_POST['email'];
 							$contact = $_POST['contact'];
-              $queryuser = "select * from registeredusers where userID ='".$username."'";
+              $queryuser = "SELECT * from `registeredusers` WHERE userID ='".$username."'";
               //check if username already exists
               $checkuser = $dbcnx->query($queryuser);
               if ($checkuser->num_rows > 0) {

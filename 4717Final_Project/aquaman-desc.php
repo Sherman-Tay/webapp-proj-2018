@@ -72,7 +72,7 @@
                   $movies = mysqli_fetch_assoc(mysqli_query($dbcnx,$sql));
                   $timing = $dbcnx->query("SELECT * FROM seatavailability WHERE `Title` = 'Aquaman'");
                   $timing1 = $dbcnx->query("SELECT * FROM seatavailability WHERE `Title` = 'Aquaman'");
-                  $query = "SELECT * FROM `movieSeats` WHERE Title='Aquaman'";
+                  $query = "SELECT * FROM `movieSeats` WHERE `Title` = 'Aquaman'";
                   $seatinfo = mysqli_fetch_assoc(mysqli_query($dbcnx,$query));
                   $sql ="SELECT `SeatPrice` FROM `movie` WHERE `Title`='Aquaman'";
                   $price = mysqli_fetch_assoc(mysqli_query($dbcnx,$sql));
@@ -118,8 +118,8 @@
                   {
                     // $variantID = $dbcnx->query("SELECT  VariantID FROM movieSeats WHERE `Time` = '.$timing_row[timing].' AND `Title` ='.$movies[Title].' LIMIT 1 ");
                     $variantID = $timing_row["VariantID"];
-                    $assocSeats1 = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = $variantID");
-                    $assocSeats = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = $variantID AND `SeatAvail` = '1'");
+                    $assocSeats1 = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = '".$variantID."'");
+                    $assocSeats = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = '".$variantID."' AND `SeatAvail` = '1'");
                     echo'
                     <br>
                     <label>Available Seats('.$timing_row['timing'].') :<br></label>';

@@ -117,8 +117,8 @@
                   {
                     // $variantID = $dbcnx->query("SELECT  VariantID FROM movieSeats WHERE `Time` = '.$timing_row[timing].' AND `Title` ='.$movies[Title].' LIMIT 1 ");
                     $variantID = $timing_row["VariantID"];
-                    $assocSeats1 = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = $variantID");
-                    $assocSeats = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = $variantID AND `SeatAvail` = '1'");
+                    $assocSeats1 = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = '".$variantID."'");
+                    $assocSeats = $dbcnx->query("SELECT SeatIndex FROM movieSeats WHERE `VariantID` = '".$variantID."' AND `SeatAvail` = '1'");
                     echo'
                     <br>
                     <label>Available Seats('.$timing_row['timing'].') :<br></label>';

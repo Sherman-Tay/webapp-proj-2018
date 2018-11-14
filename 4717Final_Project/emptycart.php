@@ -13,7 +13,7 @@ if (isset($_POST['empty'])) {
 	$sql = "select * from cart where OrderID ='".$o_id."'";
 	$result = mysqli_query($dbcnx,$sql);
 	while ($row = mysqli_fetch_assoc($result)) {
-	 	$sql = "UPDATE `movieSeats` SET `SeatAvail`='1' WHERE `SeatIndex`='".$row['SeatIndex']."' and `Time` ='".$row['Time']."'";
+	 	$sql = "UPDATE `movieSeats` SET `SeatAvail`='1' WHERE `SeatIndex`='".$row['SeatIndex']."' AND `Time` ='".$row['Time']."' AND `Title` ='".$row['Title']."' ";
 		$result=mysqli_query($dbcnx, $sql);
 	};
 

@@ -388,28 +388,25 @@ html{
 .movie_info_description{
   float: left;
   padding-top: 60px;
-  padding-left: 20px;
-  width: 400px;
+  padding-left: 0px;
+  width: 350px;
   margin-top: auto;
   margin-bottom: auto;
 }
 .movie_info_description h3{
-  font-weight:900;
+  font-weight:bold;
   text-decoration: underline;
 }
 .timing_description h3{
-  font-weight:900;
+  font-weight:bold;
   text-decoration: underline;
 }
-#tb label{
-  color: #2d191a;
-  font-weight: 800;
-}
+
 .timing_description{
   float:left;
-  width:200px;
+  width:180px;
   padding-top: 60px;
-  padding-left: 20px;
+  padding-left: 10px;
   margin-top: auto;
   margin-bottom: 90px;
 }

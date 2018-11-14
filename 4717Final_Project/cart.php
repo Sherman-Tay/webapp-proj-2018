@@ -68,7 +68,8 @@ if (isset($_GET['empty'])) {
 <?php
 $t_price = "";
 $o_id=$_SESSION['OrderID'];
-$sql = "select SeatIndex from cart where OrderID='$o_id'";
+$sql = "select ID from cart where OrderID='$o_id'";
+// $sql = "select * from cart where OrderID='$o_id'";
 $result = mysqli_query($dbcnx,$sql);
 $resultCheck = mysqli_num_rows($result);
 
@@ -81,7 +82,8 @@ if ($resultCheck >0) {
 		<th>Price</th>
 	</tr>';
 	while ($row = mysqli_fetch_assoc($result)) {
-		$query = "SELECT * from cart where SeatIndex='".$row['SeatIndex']."' and OrderID='".$o_id."'";
+		// $query = "SELECT * from cart where SeatIndex='".$row['SeatIndex']."' and OrderID='".$o_id."'";
+		$query = "SELECT * from cart where ID ='".$row['ID']."' and OrderID='".$o_id."'";
 		$data = mysqli_fetch_assoc(mysqli_query($dbcnx,$query));
 		echo '<tr>';
 		echo '<td>'.$data['Title'].'</td>';
